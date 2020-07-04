@@ -7,7 +7,9 @@ import codes.ulbricht.imanuel.heinekingmediaprobeaufgabe.adapter.viewholder.Back
 import com.squareup.picasso.Picasso
 import java.io.File
 
-class BackgroundsViewAdapter(var images: List<File>) : RecyclerView.Adapter<BackgroundsViewHolder>() {
+
+class BackgroundsViewAdapter(var images: List<File>, private val displayWidth: Int) :
+    RecyclerView.Adapter<BackgroundsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BackgroundsViewHolder {
         val view = ImageView(parent.context)
         return BackgroundsViewHolder(view)
@@ -22,7 +24,7 @@ class BackgroundsViewAdapter(var images: List<File>) : RecyclerView.Adapter<Back
             .get()
             .load(images[position])
             .centerCrop()
-            .resize(300, 300)
+            .resize(displayWidth, displayWidth)
             .into(holder.imageView)
     }
 }

@@ -10,9 +10,9 @@ import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.DisplayMetrics
 import android.view.Menu
 import codes.ulbricht.imanuel.heinekingmediaprobeaufgabe.adapter.BackgroundsViewAdapter
-import com.squareup.picasso.Picasso
 import java.io.File
 
 
@@ -55,8 +55,12 @@ class MainActivity : AppCompatActivity() {
 
         title = getString(R.string.backgrounds)
 
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val width = displayMetrics.widthPixels
+
         viewManager = GridLayoutManager(this, 4)
-        viewAdapter = BackgroundsViewAdapter(ArrayList())
+        viewAdapter = BackgroundsViewAdapter(ArrayList(), width / 4)
 
         recyclerView = findViewById<RecyclerView>(R.id.backgrounds_view).apply {
             setHasFixedSize(true)
@@ -73,8 +77,8 @@ class MainActivity : AppCompatActivity() {
                 this,
                 arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
                 PERMISSION_REQUEST
-            );
-            return;
+            )
+            return
         }
 
         displayRecyclerView()
