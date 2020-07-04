@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Heineking Media Probeaufgabe</string>
+    <string name="backgrounds">Hintergründe</string>
+    <string name="action_search">Suchen</string>
+    <string name="action_cards">Kartenlayout</string>
+    <string name="action_sort">Sortieren</string>
+    <string name="action_filter">Filtern</string>
+</resources>

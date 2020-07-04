@@ -28,12 +28,15 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    /**
+     * Fills the recycler view with the images from the DCIM folder and updates the images
+     */
     private fun displayRecyclerView() {
         val path = "${Environment.getExternalStorageDirectory()}/DCIM"
         val directory = File(path)
         val images = directory.listFiles()
         viewAdapter.images = images.toList()
-        recyclerView.adapter = viewAdapter
+        viewAdapter.notifyDataSetChanged()
     }
 
     override fun onRequestPermissionsResult(
@@ -65,6 +68,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView = findViewById<RecyclerView>(R.id.backgrounds_view).apply {
             setHasFixedSize(true)
             layoutManager = viewManager
+            adapter = viewAdapter
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M

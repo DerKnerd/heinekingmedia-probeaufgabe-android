@@ -2,7 +2,7 @@
     <string name="app_name">Heineking Media Probeaufgabe</string>
     <string name="backgrounds">Backgrounds</string>
     <string name="action_search">Search</string>
-    <string name="action_cards">Cards</string>
+    <string name="action_cards">Card layout</string>
     <string name="action_sort">Sort</string>
     <string name="action_filter">Filter</string>
 </resources>
